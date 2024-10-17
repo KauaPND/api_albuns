@@ -9,9 +9,9 @@ POST http://localhost:3333/albuns
 Content-Type: application/json
 
 {
-    "nome": "",
-    "local": "",
-    "descricao": ""
+    "nome": "a",
+    "banda": "",
+    "faixas": ""
 }
 
 ###
@@ -21,8 +21,8 @@ Content-Type: application/json
 
 {
     "nome": "",
-    "local": "",
-    "descricao": ""
+    "banda": "",
+    "faixas": ""
 }
 
 ###
