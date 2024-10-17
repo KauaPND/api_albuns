@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albuns</title>
+</head>
+<body>
+
+    <input type="text" placeholder= "Nome" id="nome">
+    <input type="text" placeholder="Banda" id="banda">
+    <input type="text" placeholder="Faixas" id="faixas">
+    <button onclick="criarAlbum()">Criar Album</button>
+
+    <p id="albuns"></p>
+
+    <script>
+        async function pegarAlbums() {
+            const resposta = await fetch('http://localhost:3333/albuns',{
+                method: 'GET'
+            })
+            const albuns = await resposta.json();
+            console.log(albuns);
+            
+            const elementoP = document.getElementById('albuns');
+            elementoP.innerHTML = albuns[1].nome;
+            
+        }
+        pegarAlbums();
+
+        async function criarAlbum() {
+            const nome = document.getElementById('nome').value;
+            const banda = document.getElementById('banda').value;
+            const faixas = document.getElementById('faixas').value;
+
+            const novoAlbum = {
+                "nome": nome,
+                "banda": banda,
+                "faixas": faixas
+            };
+            const resposta = await fetch('http://localhost:3333/albuns', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novoAlbum)
+            });
+        }
+</script>
+</body>
+</html>

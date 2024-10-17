@@ -1,0 +1,30 @@
+
+###
+
+GET http://localhost:3333/albuns
+
+###
+
+POST http://localhost:3333/albuns
+Content-Type: application/json
+
+{
+    "nome": "",
+    "local": "",
+    "descricao": ""
+}
+
+###
+
+PUT http://localhost:3333/albuns/
+Content-Type: application/json
+
+{
+    "nome": "",
+    "local": "",
+    "descricao": ""
+}
+
+###
+
+DELETE http://localhost:3333/albuns/
